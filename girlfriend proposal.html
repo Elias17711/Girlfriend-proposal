@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Girlfriend?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px; /* Added padding for mobile edges */
+            background-color: #f0f0f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box; /* Ensures padding doesn't overflow */
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            max-width: 90%; /* Prevents text from overflowing on small screens */
+        }
+        button {
+            padding: 12px 24px; /* Slightly larger for easier tapping */
+            font-size: 1.2em;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            min-width: 100px; /* Ensures buttons aren't too narrow */
+        }
+        #yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #no {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+        /* Media query for very small screens (e.g., phones in portrait) */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em; /* Smaller title for tiny screens */
+            }
+            button {
+                font-size: 1em; /* Adjust button text size */
+                padding: 10px 20px; /* Slightly smaller padding */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1><strong>Will you be my Girlfriend?</strong></h1>
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+
+    <script>
+        const noButton = document.getElementById('no');
+        const yesButton = document.getElementById('yes');
+
+        // Function to move the No button to a random position (adjusted for mobile)
+        function moveNoButton() {
+            const maxX = window.innerWidth - noButton.offsetWidth;
+            const maxY = window.innerHeight - noButton.offsetHeight;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+
+        // Add event listener to No button to move it on click
+        noButton.addEventListener('click', moveNoButton);
+
+        // Add event listener to Yes button to show a message
+        yesButton.addEventListener('click', function() {
+            alert('Love you Too! ❤️');
+        });
+    </script>
+</body>
+</html>
